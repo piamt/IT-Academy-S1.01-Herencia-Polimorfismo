@@ -5,9 +5,9 @@ public class App {
         MusicalInstrument flauta = new WindInstrument("flauta", 340.0);
         MusicalInstrument flautaTravesera = new WindInstrument("flauta travesera", 340.0);
 
-        System.err.println(guitarra.tocar());
-        System.err.println(bateria.tocar());
-        System.err.println(flauta.tocar());
-        System.err.println(flautaTravesera.tocar());
+        System.out.println(guitarra.tocar());
+        System.out.println(bateria.tocar());
+        System.out.println(flauta.tocar());
+        System.out.println(flautaTravesera.tocar());
     }
 }
