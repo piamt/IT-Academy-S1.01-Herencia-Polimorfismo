@@ -20,7 +20,7 @@ Java 23.0
 ### Instal·lació
 
 Clona aquest repositori: -> git clone  
-Accedeix al directori del projecte:   cd Nivell1-Instrument
+Accedeix al directori del projecte:   cd Nivell1-Cotxe
 
 ### Contribucions
 
