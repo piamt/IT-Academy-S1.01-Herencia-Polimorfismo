@@ -1,4 +1,4 @@
-public class Telephone {
+class Telephone {
     String marca;
     String model;
 

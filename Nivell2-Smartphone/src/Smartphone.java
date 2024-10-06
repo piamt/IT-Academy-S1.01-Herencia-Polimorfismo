@@ -1,5 +1,5 @@
 
-public class Smartphone extends Telephone implements Camera, Clock {
+class Smartphone extends Telephone implements Camera, Clock {
 
     public Smartphone(String marca, String model) {
         super(marca, model);
