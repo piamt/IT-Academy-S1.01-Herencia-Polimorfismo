@@ -1,7 +1,12 @@
 public class BasketNews extends News {
 
-    String competition;
-    String club;
+    private String competition;
+    private String club;
+
+    private static final String EUROLLIGA = "Eurolliga";
+    private static final String ACB = "ACB";
+    private static final String BARÇA = "Barça";
+    private static final String MADRID = "Madrid";
 
     public BasketNews(String headline, String competition, String club) {
         this.headline = headline;
@@ -11,28 +16,30 @@ public class BasketNews extends News {
         calculateNewsScore();
     }
 
+    @Override
     public void calculateNewsPrice() {
         int price = 250;
-        if (competition.equals("Eurolliga")) {
+        if (competition.equals(EUROLLIGA)) {
             price += 75;
         }
 
-        if (club.equals("Barça") || club.equals("Madrid"))  {
+        if (club.equals(BARÇA) || club.equals(MADRID)) {
             price += 75;
         }
 
         this.price = price;
     }
 
+    @Override
     public void calculateNewsScore() {
         int score = 4;
-        if (competition.equals("Eurolliga")) {
+        if (competition.equals(EUROLLIGA)) {
             score += 3;
-        } else if (competition.equals("ACB")) {
+        } else if (competition.equals(ACB)) {
             score += 2;
         }
 
-        if (club.equals("Barça") || club.equals("Madrid"))  {
+        if (club.equals(BARÇA) || club.equals(MADRID))  {
             score += 1;
         }
 

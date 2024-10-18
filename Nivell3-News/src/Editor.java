@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 public class Editor {
 
@@ -43,7 +44,7 @@ public class Editor {
         if (this.newsList.containsKey(headline)) {
             return this.newsList.get(headline);
         } else {
-            throw new NullPointerException();
+            throw new NoSuchElementException("This new is not available");
         }
     }
 }

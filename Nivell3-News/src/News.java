@@ -1,9 +1,9 @@
 public abstract class News {
 
-    String headline;
-    String text = "";
-    int score;
-    int price;
+    protected String headline;
+    private String text = "";
+    protected int score;
+    protected int price;
 
    public int getScore() {
        return this.score;

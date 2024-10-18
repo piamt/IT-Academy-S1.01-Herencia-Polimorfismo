@@ -1,36 +1,21 @@
 public class Car {
 
-    public enum Marca {
-        Audio ,
-        Citroen,
-        AlfaRomeo,
-        Kia
+    static final protected Marca marca = Marca.AlfaRomeo;
+    static protected Model model;
+    final protected double potencia;
+
+    static {
+        Car.model = Model.A5;
     }
 
-    public enum Model {
-        A3, // Audi
-        A5, // Audi
-        Berlina, // Citroen
-        C3, // Citroen
-        Giulia, // Alfa Romeo
-        Stelvio, // Alfa Romeo
-        Sportage, // Kia
-        EV9, // Kia
-    }
-
-    static final Marca marca = Marca.AlfaRomeo;
-    static Model model;
-    final double potencia;
-
-    public Car(Model model, double potencia) {
+    public Car(double potencia) {
        // Car.marca = marca; // Error
        // this.marca = marca; // Error
-        Car.model = model;
         this.potencia = potencia;
     }
 
     public void updateModel() {
-        Car.model = Car.Model.Sportage;
+        Car.model = Model.Sportage;
     }
 
     static public String frenar() {

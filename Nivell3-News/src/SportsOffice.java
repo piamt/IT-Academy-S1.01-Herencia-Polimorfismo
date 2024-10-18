@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 public class SportsOffice {
 
@@ -19,7 +20,7 @@ public class SportsOffice {
         if (editorList.containsKey(name)) {
             editorList.get(name).addNews(news);
         } else {
-            throw new NullPointerException("Editor not found");
+            throw new NoSuchElementException("Editor not found");
         }
     }
 
@@ -28,7 +29,7 @@ public class SportsOffice {
         if (editorList.containsKey(name)) {
             editorList.get(name).removeNews(headline);
         } else {
-            throw new NullPointerException("Editor not found");
+            throw new NoSuchElementException("Editor not found");
         }
     }
 
@@ -37,7 +38,7 @@ public class SportsOffice {
         if (editorList.containsKey(name)) {
             return editorList.get(name).getNewsList();
         } else {
-            throw new NullPointerException("Editor not found");
+            throw new NoSuchElementException("Editor not found");
         }
     }
 
@@ -46,7 +47,7 @@ public class SportsOffice {
         if (editorList.containsKey(name)) {
             return editorList.get(name).getNews(headline).getScore();
         } else {
-            throw new NullPointerException("Editor not found");
+            throw new NoSuchElementException("Editor not found");
         }
     }
 
@@ -55,7 +56,7 @@ public class SportsOffice {
         if (editorList.containsKey(name)) {
             return editorList.get(name).getNews(headline).getPrice();
         } else {
-            throw new NullPointerException("Editor not found");
+            throw new NoSuchElementException("Editor not found");
         }
     }
 }

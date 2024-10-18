@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,7 +9,6 @@ public class Main {
         Editor valeria = new Editor("Valeria", "12796432L");
         Editor mario = new Editor("Mario", "56033920S");
 
-        // 1. Introduce editor
         office.addEditor(jaime);
         office.addEditor(valeria);
         office.addEditor(mario);
@@ -19,7 +19,6 @@ public class Main {
         News newsF1 = new F1News("F1 news", "Mercedes");
         News newsMotos = new MotosNews("Motos news", "Honda");
 
-        // 3. Add news to editor
         jaime.addNews(newsSoccer);
         valeria.addNews(newsbasket);
         valeria.addNews(newsTennis);
@@ -27,22 +26,23 @@ public class Main {
         valeria.addNews(newsMotos);
         mario.addNews(newsSoccer);
 
+        System.out.println("Check for news:");
         try {
             for (News news: office.getNewsListFromEditor("Mario")) {
                 System.out.println("Mario's news: " + news.headline);
             }
-        } catch (NullPointerException e) {
+        } catch (NoSuchElementException e) {
             System.out.println(e.getMessage());
         }
 
-        // 2. Remove editor
+        System.out.println("\n2. Remove editor");
         office.removeEditor("Mario");
 
         try {
             for (News news: office.getNewsListFromEditor("Mario")) {
                 System.out.println("Mario's news: " + news.headline);
             }
-        } catch (NullPointerException e) {
+        } catch (NoSuchElementException e) {
             System.out.println("No Mario editor anymore");
         }
 
@@ -51,46 +51,43 @@ public class Main {
             for (News news: office.getNewsListFromEditor("Jaime")) {
                 System.out.println(news.headline);
             }
-        } catch (NullPointerException e) {
+        } catch (NoSuchElementException e) {
             System.out.println("No Jaime editor found");
         }
 
-        // 5. Show all news from editor
-        System.out.println("\nValeria's news:");
+        System.out.println("Valeria's news:");
         try {
             for (News news: office.getNewsListFromEditor("Valeria")) {
                 System.out.println(news.headline);
             }
-        } catch (NullPointerException e) {
+        } catch (NoSuchElementException e) {
             System.out.println("No Valeria editor found");
         }
 
-        // 4. Remove news from editor
         office.removeNewsFromEditor("Motos news", "Valeria");
-
-        System.out.println("\nValeria's news after removal:");
+        System.out.println("Valeria's news after removing 1 new:");
         try {
             for (News news: office.getNewsListFromEditor("Valeria")) {
                 System.out.println(news.headline);
             }
-        } catch (NullPointerException e) {
+        } catch (NoSuchElementException e) {
             System.out.println("No Valeria editor found");
         }
 
-        // 6. Get score for news
+        System.out.println("\nGet score for news");
         try {
             int score = office.getScoreForNews("F1 news", "Jaime");
             System.out.println("Jaime score: " + score + " for F1 news");
-        } catch (NullPointerException e) {
-            System.out.println("New not found");
+        } catch (NoSuchElementException e) {
+            System.out.println(e.getMessage());
         }
 
-        // 7. Get price for news
+        System.out.println("\nGet price for news");
         try {
             int price = office.getPriceForNews("Motos news", "Valeria");
             System.out.println("Valeria price: " + price + " for Motos news");
-        } catch (NullPointerException e) {
-            System.out.println("New not found");
+        } catch (NoSuchElementException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
